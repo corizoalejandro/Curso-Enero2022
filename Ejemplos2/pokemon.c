@@ -16,6 +16,10 @@ pokemon inicializa_pokemon(const char nombre[], const char tipo1[], const char t
 }
 
 void inicializa_pokemon_alt(pokemon *p, const char* nombre, const char* tipo1, const char* tipo2){
+    if(p == NULL){
+        printf("No se inicializo pokemon insertado\n");
+        return;
+    }
     strcpy(p->nombre, nombre);
     strcpy(p->tipo1, tipo1);
     if(strlen(tipo2)){

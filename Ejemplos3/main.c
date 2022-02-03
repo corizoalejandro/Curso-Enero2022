@@ -6,16 +6,13 @@ int multiplicacion(int a, int b);
 int division(int a, int b);
 int modulo(int a, int b);
 
-void operando(void *a, void *b, int (*funcion) (int, int));
+//void operando(void *a, void *b, int (*funcion) (int, int));
+
+void ejemplo1(void);
 
 int main()
 {
-    int a = 7;
-    int b = 8;
-//    int (*funcion) (int, int);
-//    funcion = &multiplicacion;
-//    printf("El resultado de %i con %i es: %i\n", a, b, funcion(a,b));
-    operando(a, b, &multiplicacion);
+
     return 0;
 }
 
@@ -38,6 +35,15 @@ int modulo(int a, int b){
     return a % b;
 }
 
-void operando(int a, int b, int (*funcion) (int, int)){
+//void operando(int a, int b, int (*funcion) (int, int)){
+//    printf("El resultado de %i con %i es: %i\n", a, b, funcion(a,b));
+//}
+
+void ejemplo1(void){
+    int a = 7;
+    int b = 8;
+    int (*funcion) (int, int);
+    funcion = &multiplicacion;
     printf("El resultado de %i con %i es: %i\n", a, b, funcion(a,b));
+//    operando(a, b, &multiplicacion);
 }
