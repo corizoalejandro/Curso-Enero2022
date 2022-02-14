@@ -37,4 +37,6 @@ int compara_pokemon(void *pokemon1, void *pokemon2);
 
 int guarda_pokemon(pokemon* p, FILE *archivo, int tipo);
 
+int carga_pokemon(pokemon* p, FILE *archivo, int tipo);
+
 #endif

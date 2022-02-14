@@ -79,11 +79,29 @@ int guarda_pokemon(pokemon* p, FILE *archivo, int tipo){
     }
     // guardamos en texto
     if(tipo == POKEMON_TEXTO){
-        resultado = fprintf(archivo, "%s,%s,%s\n", p->nombre, p->tipo1, p->tipo2);
+        resultado = fprintf(archivo, "%s %s %s", p->nombre, p->tipo1, p->tipo2);
     // guardamos en binario
     }else if(tipo == POKEMON_BINARIO){
-        resultado = fputs((char*) p, archivo);
+        resultado = fwrite(p, sizeof (pokemon), 1, archivo);
     }
     // regresamos nuestro resultado
+    return resultado;
+}
+
+// cargar datos de un pokemon y almacenarlo en el parametro
+int carga_pokemon(pokemon* p, FILE *archivo, int tipo){
+    int resultado = 0;
+    // checar si el archivo está abierto
+    if(!archivo){
+        return resultado;
+    }
+    // cargando datos
+    if(tipo == POKEMON_TEXTO){
+        resultado = fscanf(archivo, "%s %s %s", p->nombre, p->tipo1, p->tipo2);
+    }else if(tipo == POKEMON_BINARIO){
+        resultado = fread(p, sizeof(pokemon), 1, archivo);
+    }
+
+//    regresamos el resultado
     return resultado;
 }
