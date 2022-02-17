@@ -3,6 +3,7 @@
 #include <string.h>
 
 #define CADENA 20
+#define NO_PERSONAS 5
 #define ARCHIVO_PERSONA "persona.txt"
 
 typedef struct persona{
@@ -18,10 +19,20 @@ int carga_persona(persona* p, FILE* archivo);
 void guarda_datos(void);
 void carga_datos(void);
 
+
 int main()
 {
-    guarda_datos();
-    carga_datos();
+    persona** arregloDePunteros = (persona**) malloc(sizeof (persona*)*NO_PERSONAS);
+    arregloDePunteros[0] = inicializa_persona("juanito", "perez", 85);
+    arregloDePunteros[1] = inicializa_persona("pedrito", "lopez", 96);
+    arregloDePunteros[2] = inicializa_persona("maria", "gonzalez", 78);
+    arregloDePunteros[3] = inicializa_persona("juanita", "apellido", 79);
+    arregloDePunteros[4] = inicializa_persona("josefina", "lopez", 87);
+
+    for(int i=0;i < NO_PERSONAS;i++){
+        muestra_persona(arregloDePunteros[i]);
+    }
+
     printf("fin de programa\n");
     return EXIT_SUCCESS;
 }
