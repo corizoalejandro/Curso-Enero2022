@@ -14,12 +14,12 @@ Figura::Figura()
 }
 
 int Figura::area(){
-    std::cout << "Area de figura" << std::endl;
+    std::cout << "Area de figura Padre" << std::endl;
     return -1;
 }
 
 int Figura::perimetro(){
-    std::cout << "Perimetro de figura" << std::endl;
+    std::cout << "Perimetro de figura Padre" << std::endl;
     return -1;
 }
 
@@ -34,6 +34,7 @@ Cuadrado::Cuadrado(int lado){
 }
 
 int Cuadrado::area(){
+    Figura::area();
     return lado*lado;
 }
 

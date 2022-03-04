@@ -187,6 +187,7 @@ void AdministradorArchivos::guarda_vector(std::string nombre)
     personas.push_back(Persona("Chabelo", "Lopez", 100000));
     personas.push_back(Persona("Pepito", "Jimenez", 20));
     std::cout << personas[0];
+    for(std::vector<Persona>::iterator i = personas.begin(); i != personas.end(); i++);
     for(int i=0;i < personas.size(); i++){
         archivito.write((char*) &personas[i], sizeof (Persona));
     }
