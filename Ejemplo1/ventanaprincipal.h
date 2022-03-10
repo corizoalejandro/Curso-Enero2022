@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QtWidgets>
+#include <QList>
+#include "persona.h"
 
 #define ANCHO_VENTANA_MAIN 600
 #define LARGO_VENTANA_MAIN 400
@@ -26,11 +28,24 @@ private:
     // widgets
     QListWidget *listaDatos;
     QPushButton *botonAgregar;
+
+    QLineEdit *lineEditNombre;
+    QLineEdit *lineEditEdad;
+    QLineEdit *lineEditGenero;
     // aquí va ir el contenido principal de
     // la ventana
     QWidget *widgetCentral;
 
+    // datos de la clase
+    QList<Persona*> listaPersonas;
+
     // funciones
     void inicializa_widget_central();
+    void inicializa_eventos();
+    void agrega_datos_a_lista(Persona *p);
+    void mostrar_datos_seleccionados(Persona *p);
+public Q_SLOTS:
+    void agregar_nueva_persona();
+    void evento_lista_seleccionado(int row);
 };
 #endif // VENTANAPRINCIPAL_H
